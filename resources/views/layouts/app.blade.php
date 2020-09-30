@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' href="/css/app.css">
+        <link rel='stylesheet' href="/css/style.css">
         <title>BBIMS</title>
 
-    </head>   
-            <body> 
+    </head>
+            <body>
                 @include('inc.navbar')
                 <div class='container'>
                @yield('content')
-                </div> 
-            </body>     
+                </div>
+            </body>
 </html>
