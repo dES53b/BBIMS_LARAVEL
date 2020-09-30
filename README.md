@@ -1,5 +1,5 @@
 DONOR
--Login-donor_id, national_id -> From laravel
+-Login-donor_id,national_id -> From laravel
 -View profile viewProfile()
 -view donation history viewHistory()
 
