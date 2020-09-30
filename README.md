@@ -1,61 +1,94 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+DONOR
+-Login-donor_id, national_id -> From laravel
+-View profile viewProfile()
+-view donation history viewHistory()
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+-check donation schedule checkDonation()
+CLINIC
+Register donors registerDonor()
+Checking donor viability checkViability()
+Create donation recordscreateRecords()
+Update records updateRecords()
 
-## About Laravel
+ADMIN
+Create  account createAccount()
+login			login()
+Create Clinic accounts createClinic()
+View clinics viewClinic()
+Remove clinic removeClinic()
+Edit clinic
+Send alerts(dashboard popups) to clinics( Pick up time, security alerts in area),
+donors (sms)(emergency alerts in area, blood accepted notification(appreciation)
+sendAletrs()
+sms: phone_number
+	 body
+	 api key
+personel:															
+		name
+		id 
+		national_id
+		clinic_id
+	    img
+		email
+ADMIN:
+		id
+		name
+		password
+		email
+donor:
+	location
+	name
+	donor_id
+	national_id
+	gender
+	d.o.b
+	phone_number
+	health_status
+	marital_status
+	
+	
+Health_check:
+		1. Are you feeling well and in good health today? Yes/No
+		2. Have you eaten in the last 6 hours? Yes/No
+		3. Have you ever fainted? Yes/No
+		In the past 6 months have you:
+		4. Been ill, received any treatment or any medication? Yes/No
+		5. Had any injections or vaccinations (immunizations)? Yes/No
+		6. Female Donors: Have you been pregnant or breast feeding? Yes/No
+		In the past 12 months have you:
+		7. Received a blood transfusion or any blood products? Yes/No
+		Do you have or have you ever had:
+		8. Any problems with your heart or lungs e.g. asthma? Yes/No
+		9. A bleeding condition or a blood disease? Yes/No
+		10. Any type of cancer? Yes/No
+		11. Diabetes, epilepsy or TB? Yes/No
+		12. Any other long term illness Yes/No
+		Please Specify
+		In the past 12 months have you:
+						
+		4. Had a stab wound or had an accidental needle stick injury e.g. injection needle? Yes/No
+		5. Had any tattooing or body piercing e.g. ear piercing? Yes/No
+		6. Had a sexually transmitted disease (STD)? Yes/No
+		7. Live with or had sexual contact with someone with yellow eyes or yellow skin? Yes/No
+		
+		Have you ever:
+		9. Had yellow eyes or yellow skin? Yes/No
+		10. Injected yourself or been injected, besides in a health facility? Yes/No
+		11. Used non-medical drugs such as Marijuana, Cocaine etc? Yes/No
+		13. Do you consider your blood safe to transfuse to a patient?
+	
+Clinic:
+		clinic_id          												
+		location
+		name
+		username
+		password
+		
+						 
+				 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+		
+		
+	
+https://www.youtube.com/watch?v=UGu9unCW4PA&list=PL_c9BZzLwBRKn20DFbNeLAAbw4ZMTlZPH&ab_channel=CalebCurry
+	
