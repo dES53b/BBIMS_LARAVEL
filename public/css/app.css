@@ -4499,6 +4499,7 @@ input[type=button].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  
 }
 
 .navbar .container,
@@ -10898,4 +10899,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-

@@ -9,7 +9,7 @@
     </head>
             <body>
                 @include('inc.navbar')
-                <div class='container'>
+                <div  style="margin-top: 15px"class='container'>
                @yield('content')
                 </div>
             </body>
