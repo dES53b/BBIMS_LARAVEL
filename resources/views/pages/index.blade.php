@@ -21,7 +21,7 @@
         <div class="card-body">
           <h4 class="card-title">CLINIC</h4>
 
-          <p><a href="{{url('/login')}}" class="btn btn-primary">LOGIN</a></p>
+          <p><a href="{{url('/login/clinic')}}" class="btn btn-primary">LOGIN</a></p>
         </div>
       </div>
 
@@ -33,7 +33,7 @@
       <div class="card-body">
         <h4 class="card-title">DONOR</h4>
 
-        <p><a href="{{url('/login')}}" class="btn btn-primary" style="margin-right: 10px">LOGIN</a>
+        <p><a href="{{url('/login/donor')}}" class="btn btn-primary" style="margin-right: 10px">LOGIN</a>
         </p>
       </div>
     </div>

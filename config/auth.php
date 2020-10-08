@@ -46,6 +46,16 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'donor' => [
+          'driver' => 'session',
+          'provider' => 'donor'
+        ],
+
+        'clinic' => [
+          'driver' => 'session',
+          'provider' => 'clinic'
+        ],
     ],
 
     /*
@@ -70,6 +80,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+        'donor' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Donor::class,
+        ],
+
+        'clinic' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Clinic::class,
+        ],
+
+
 
         // 'users' => [
         //     'driver' => 'database',
