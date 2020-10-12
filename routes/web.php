@@ -55,3 +55,9 @@ Route::post('/register/donor',[RegisterController::class,'registerDonor']);
 Route::get('/clinics/view', [ClinicController::class, 'view'])->name('viewClinics');
 Route::get('/clinics/edit/{id}', [ClinicController::class, 'editPage'])->name('editClinic');
 Route::post('/clinics/delete', [ClinicController::class, 'delete'])->name('deleteClinic');
+
+//alerts
+
+Route::post('/alert/clinic', [AlertsController::class, 'alertClinic']);
+Route::post('/alert/donor', [AlertsController::class, 'alertDonor']);
+Route::get('/alerts/new', [AlertsController::class, 'index'])->name('newAlerts');;
