@@ -1,8 +1,11 @@
+@extends('layouts.app')
 
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <div class="card-header">{{ __('Alert clinic') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ url('/alert/clinic') }}">
@@ -44,7 +47,7 @@
                             <label for="pickup-time" class="col-md-4 col-form-label text-md-right">{{ __('Pickup Time') }}</label>
 
                             <div class="col-md-6">
-                                <input id="pickup-time" type="time" class="form-control @error('pickup-time') is-invalid @enderror" name="pickup-time" value="{{ old('pickup-time') }}" required autocomplete="pickup-time" >
+                                <input placeholder="Choose pickup time" id="pickup-time" type="time" class="form-control @error('pickup-time') is-invalid @enderror" name="pickup-time" value="{{ old('pickup-time') }}" required autocomplete="pickup-time" >
 
                                 @error('pickup-time')
                                     <span class="invalid-feedback" role="alert">
@@ -67,11 +70,4 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-if ($security->has('error') || $select_clinic->has('error') || $pickup-time->has('error') || ){
-  //show modal
-  getElementById('clinicAlert').modal('show');
-}
-
-</script>
+@endsection

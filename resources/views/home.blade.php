@@ -13,7 +13,7 @@
                       <ul style="list-style: none;">
                         <li  style=" display: inline; margin-right: 10px"> <a href="{{url('/new/clinic')}}">Create clinic account</a> </li>
                         <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewClinics')}}">View Clinics</a> </li>
-                        <li  style="display: inline; margin-right: 10px"> <a href="#">Send Alerts</a> </li>
+                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('newAlerts')}}">Send Alerts</a> </li>
 
                       </ul>
                     </div>

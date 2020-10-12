@@ -1,6 +1,5 @@
 @extends('layouts.app')
-@include('alerts.clinic')
-@include('alerts.donor')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -8,9 +7,9 @@
             <div class="card">
                 <div class="card-header">{{ __('Send alerts') }}</div>
 
-                <div class="card-body">
-                    <a  class="btn btn-primary" data-toggle ="modal" data-target= '#clinicAlert' >Alert clinic</a>
-                    <a  class="btn btn-primary" data-toggle ="modal" data-target= '#donorAlert' >Alert donor</a>
+                <div style="padding-left: 50px" class="card-body">
+                    <a style="color: white; margin-right: 10px" class="btn btn-primary" href="{{url('/alerts/alertclinic')}}">Alert clinic</a>
+                    <a style="color: white" class="btn btn-primary" href="#" >Alert donor</a>
 
 
                 </div>

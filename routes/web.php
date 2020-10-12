@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClinicController;
+use App\Http\Controllers\AlertsController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
@@ -60,4 +61,5 @@ Route::post('/clinics/delete', [ClinicController::class, 'delete'])->name('delet
 
 Route::post('/alert/clinic', [AlertsController::class, 'alertClinic']);
 Route::post('/alert/donor', [AlertsController::class, 'alertDonor']);
-Route::get('/alerts/new', [AlertsController::class, 'index'])->name('newAlerts');;
+Route::get('/alerts/new', [AlertsController::class, 'index'])->name('newAlerts');
+Route::get('/alerts/alertclinic', [AlertsController::class, 'alertPage']);
