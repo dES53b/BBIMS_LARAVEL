@@ -5,16 +5,21 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Admin Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <p>Useful Links</p>
+                    <div class="">
+                      <ul style="list-style: none;">
+                        <li  style=" display: inline; margin-right: 10px"> <a href="{{url('/new/clinic')}}">Create clinic account</a> </li>
+                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewClinics')}}">View Clinics</a> </li>
+                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('newAlerts')}}">Send Alerts</a> </li>
 
-                    {{ __('You are logged in!') }}
+                      </ul>
+                    </div>
+
+
+
                 </div>
             </div>
         </div>

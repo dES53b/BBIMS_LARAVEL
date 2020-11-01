@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+
+class DonorController extends Controller
+{
+
+
 use App\Donor;
 use App\Clinic;
 
@@ -84,4 +90,5 @@ class DonorController extends Controller
     {
         //
     }
+
 }

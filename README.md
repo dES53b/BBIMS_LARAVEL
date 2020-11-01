@@ -25,10 +25,10 @@ sms: phone_number
 	 api key
 personel:															
 		name
-		id 
+		id
 		national_id
 		clinic_id
-	    img
+	  img
 		email
 ADMIN:
 		id
@@ -45,8 +45,15 @@ donor:
 	phone_number
 	health_status
 	marital_status
-	
-	
+
+Clinic:
+			clinic_id          												
+			location
+			name
+			username
+			password
+
+
 Health_check:
 		1. Are you feeling well and in good health today? Yes/No
 		2. Have you eaten in the last 6 hours? Yes/No
@@ -65,30 +72,17 @@ Health_check:
 		12. Any other long term illness Yes/No
 		Please Specify
 		In the past 12 months have you:
-						
+
 		4. Had a stab wound or had an accidental needle stick injury e.g. injection needle? Yes/No
 		5. Had any tattooing or body piercing e.g. ear piercing? Yes/No
 		6. Had a sexually transmitted disease (STD)? Yes/No
 		7. Live with or had sexual contact with someone with yellow eyes or yellow skin? Yes/No
-		
+
 		Have you ever:
 		9. Had yellow eyes or yellow skin? Yes/No
 		10. Injected yourself or been injected, besides in a health facility? Yes/No
 		11. Used non-medical drugs such as Marijuana, Cocaine etc? Yes/No
 		13. Do you consider your blood safe to transfuse to a patient?
-	
-Clinic:
-		clinic_id          												
-		location
-		name
-		username
-		password
-		
-						 
-				 
 
-		
-		
-	
+
 https://www.youtube.com/watch?v=UGu9unCW4PA&list=PL_c9BZzLwBRKn20DFbNeLAAbw4ZMTlZPH&ab_channel=CalebCurry
-	

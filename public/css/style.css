@@ -11020,12 +11020,10 @@ html, body {
 
 }
 
-.how-it-works{
+table, td, th{
+  border: solid 1px;
+  border-collapse: collapse;
+  padding: 3px;
   text-align: center;
-  margin-top: 60px;
-}
 
-.how-it-works-text{
-  font-weight: bold;
-  font-size: 35px;
 }
