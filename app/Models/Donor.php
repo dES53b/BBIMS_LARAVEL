@@ -13,4 +13,10 @@ class Donor extends Authenticatable
   protected $hidden = ['password', 'remember_token'];
 
   protected $guard = 'donor';
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Donor extends Model
+{
+    use HasFactory;
 }

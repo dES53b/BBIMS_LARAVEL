@@ -13,4 +13,10 @@ class Clinic extends Authenticatable
     protected $hidden = ['password', 'remember_token'];
 
     protected $guard = 'clinic';
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Clinic extends Model
+{
+    use HasFactory;
 }

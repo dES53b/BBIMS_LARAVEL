@@ -39,6 +39,7 @@ Route::get('/',[PagesController::class,'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 //Clinic and donor auths
 Route::get('/login/clinic',[LoginController::class,'clinicLoginPage']);
 Route::get('/login/donor',[LoginController::class,'donorLoginPage']);
@@ -63,3 +64,6 @@ Route::post('/alert/clinic', [AlertsController::class, 'alertClinic']);
 Route::post('/alert/donor', [AlertsController::class, 'alertDonor']);
 Route::get('/alerts/new', [AlertsController::class, 'index'])->name('newAlerts');
 Route::get('/alerts/alertclinic', [AlertsController::class, 'alertPage']);
+
+Route::post('/register/donor',[ClinicController::class,'create']);
+
