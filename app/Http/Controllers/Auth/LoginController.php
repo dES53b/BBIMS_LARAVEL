@@ -71,8 +71,10 @@ class LoginController extends Controller
            'password' => $request->password])) {
 
             return redirect()->intended('/clinic');
+          }else{
+            return 'wrong credentials';
           }
-          return back()->withInput($request->only('username', 'remember'));
+         
     }
 
 

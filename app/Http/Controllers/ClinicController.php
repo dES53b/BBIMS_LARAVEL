@@ -56,6 +56,11 @@ class ClinicController extends Controller
       return redirect()->back();
     }
 
+    function clinicHome(){
+
+      return view('clinics.clinic');
+    }
+
     function delete()
     {
       // code...

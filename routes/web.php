@@ -45,6 +45,7 @@ Route::get('/login/clinic',[LoginController::class,'clinicLoginPage']);
 Route::get('/login/donor',[LoginController::class,'donorLoginPage']);
 Route::get('/new/clinic',[ClinicController::class,'newClinicPage']);
 Route::get('/register/donor',[RegisterController::class,'registerClinicPage']);
+Route::get('/clinic',[ClinicController::class,'clinicHome']);
 
 //Actual login Logic
 Route::post('/login/clinic',[LoginController::class,'clinicLogin']);

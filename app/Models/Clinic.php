@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Clinic extends Authenticatable 
 {
-    use Notifiable;  use HasFactory;
+    use Notifiable;
 
     protected $fillable = ['name', 'location', 'username', 'password'];
     protected $hidden = ['password', 'remember_token'];
