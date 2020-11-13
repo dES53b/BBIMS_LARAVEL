@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Clinic;
+use Hash;
 
 
 class ClinicController extends Controller
@@ -48,7 +49,7 @@ class ClinicController extends Controller
       // code...
       Clinic::create(
         ['name' => request('name'),
-         'password' => request('password'),
+         'password' => Hash::make(request('password')),
          'username' => request('username'),
          'location' => request('location')]
       );
@@ -57,8 +58,8 @@ class ClinicController extends Controller
     }
 
     function clinicHome(){
-
-      return view('clinics.clinic');
+      
+      return view('clinics.clinic', );
     }
 
     function delete()
@@ -95,4 +96,3 @@ class ClinicController extends Controller
       }
     }
   }
-

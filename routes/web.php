@@ -46,6 +46,7 @@ Route::get('/login/donor',[LoginController::class,'donorLoginPage']);
 Route::get('/new/clinic',[ClinicController::class,'newClinicPage']);
 Route::get('/register/donor',[RegisterController::class,'registerClinicPage']);
 Route::get('/clinic',[ClinicController::class,'clinicHome']);
+Route::get('/donor',[DonorController::class,'donorHome']);
 
 //Actual login Logic
 Route::post('/login/clinic',[LoginController::class,'clinicLogin']);
@@ -67,4 +68,3 @@ Route::get('/alerts/new', [AlertsController::class, 'index'])->name('newAlerts')
 Route::get('/alerts/alertclinic', [AlertsController::class, 'alertPage']);
 
 Route::post('/register/donor',[ClinicController::class,'create']);
-

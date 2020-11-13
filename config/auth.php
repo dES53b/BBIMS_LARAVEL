@@ -49,12 +49,12 @@ return [
 
         'donor' => [
           'driver' => 'session',
-          'provider' => 'donor'
+          'provider' => 'donors'
         ],
 
         'clinic' => [
           'driver' => 'session',
-          'provider' => 'clinic'
+          'provider' => 'clinics'
         ],
     ],
 
@@ -81,14 +81,15 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        'donor' => [
+        'donors' => [
             'driver' => 'eloquent',
             'model' => App\Models\Donor::class,
         ],
 
-        'clinic' => [
+        'clinics' => [
             'driver' => 'eloquent',
             'model' => App\Models\Clinic::class,
+
         ],
 
 
@@ -121,6 +122,14 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
+        'clinics' => [
+            'provider' => 'clinics',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
     ],
 
     /*

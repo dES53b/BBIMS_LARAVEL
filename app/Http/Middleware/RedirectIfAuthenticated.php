@@ -21,8 +21,18 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
+
+
+            if ($guard == "donor" && Auth::guard($guard)->check()) {
+                return redirect('/donor');
+            }
+
+            if ($guard == "clinic" && Auth::guard($guard)->check()) {
+                return redirect('/clinic');
+            }
+
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                return redirect('/home');
             }
         }
 

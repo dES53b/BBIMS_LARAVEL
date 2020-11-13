@@ -3,12 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
-class DonorController extends Controller
-{
-
-
 use App\Donor;
 use App\Clinic;
 
@@ -25,6 +19,10 @@ class DonorController extends Controller
         return view('donors.index',['donors' => $donors,]);
     }
 
+    function donorHome(){
+      return view('donors.donor-home');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -33,6 +31,21 @@ class DonorController extends Controller
     public function create()
     {
         //
+
+        $password = Hash::make(request('national_id'));
+        Donor::create(
+          [
+            'name' => request('name'),
+            'location' => request('location'),
+            'national_id' => request('national_id'),
+            'gender' => request('gender'),
+            'dob' => request('dob'),
+            'health_status' => request('health_status'),
+            'marital_status' => request('marital_status'),
+            'phone_number' => request('phone_number'),
+            'password' => $password
+          ]
+        );
     }
 
     /**

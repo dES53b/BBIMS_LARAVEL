@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-     protected $redirectTo = RouteServiceProvider::HOME;
+     //protected $redirectTo = '/home';
   //  protected function redirectTo(){
 
 
@@ -37,7 +37,7 @@ class LoginController extends Controller
   //     case 'value':
   //       # code...
   //       break;
-      
+
   //     default:
   //       # code...
   //       break;
@@ -66,15 +66,15 @@ class LoginController extends Controller
               'password' => 'required'
           ]);
 
+
           if (Auth::guard('clinic')
           ->attempt(['username' => $request->username,
            'password' => $request->password])) {
 
             return redirect()->intended('/clinic');
-          }else{
-            return 'wrong credentials';
           }
-         
+        //  return back()->withInput($request->only('donor_id', 'remember'));
+
     }
 
 
@@ -92,7 +92,7 @@ class LoginController extends Controller
 
           if (Auth::guard('donor')
           ->attempt(['donor_id' => $request->donor_id,
-           'national_id' => $request->national_id])) {
+           'password' => Hash::make($request->national_id)])) {
 
               return redirect()->intended('/donor');
           }
