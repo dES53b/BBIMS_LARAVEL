@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClinicController;
+use App\Http\Controllers\DonorController;
 use App\Http\Controllers\AlertsController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,7 @@ Route::get('/new/clinic',[ClinicController::class,'newClinicPage']);
 Route::get('/register/donor',[RegisterController::class,'registerClinicPage']);
 Route::get('/clinic',[ClinicController::class,'clinicHome']);
 Route::get('/donor',[DonorController::class,'donorHome']);
+Route::get('/sendSMS',[DonorController::class,'sendSMS'])->name('sendSMS');
 
 //Actual login Logic
 Route::post('/login/clinic',[LoginController::class,'clinicLogin']);

@@ -13,7 +13,9 @@
                       <ul style="list-style: none;">
                         <li  style=" display: inline; margin-right: 10px"> <a href="{{url('/new/clinic')}}">Create donor</a> </li>
                         <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewClinics')}}">View donors</a> </li>
+                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('sendSMS')}}">Send SMS</a> </li>
                         {{-- <li  style="display: inline; margin-right: 10px"> <a href="{{route('newAlerts')}}">Send Alerts</a> </li> --}}
+
 
                       </ul>
                     </div>

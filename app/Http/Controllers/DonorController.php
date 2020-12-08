@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Donor;
 use App\Clinic;
+use AfricasTalking\SDK\AfricasTalking;
 
 class DonorController extends Controller
 {
@@ -21,6 +22,31 @@ class DonorController extends Controller
 
     function donorHome(){
       return view('donors.donor-home');
+    }
+
+    function sendSMS($phone, $name){
+      $username = 'sandbox';
+      $key = '1c69c9a7a5bf058bcaf59a5f695a1e915a0351e6d5c55e8edc398d81084dab6e';
+    //  $from = 'Blood Bank Group';
+      $africasTalking = new AfricasTalking($username, $key);
+      $sms = $africasTalking->sms();
+
+      try {
+        $result = $sms->send([
+          'to' => $phone,
+          'message' => "Hello, ".$name." ,your account has been successfully created.",
+          'from' => 'BBIMS'
+
+        ]);
+      } catch (\Exception $e) {
+
+        echo $e->message;
+      }
+      return $result;
+
+
+
+
     }
 
     /**
@@ -46,10 +72,17 @@ class DonorController extends Controller
             'password' => $password
           ]
         );
+        $donor = new Donor();
+
+        if ($donor->where('phone_number', request('phone_number'))->exists()) {
+          $this->sendSMS(request('phone_number'), request('name'));
+        }
+
+
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
