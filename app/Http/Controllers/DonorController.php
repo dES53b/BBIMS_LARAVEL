@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Donor;
+use  Illuminate\Support\Facades\Hash;
+use App\Models\Donor;
 use App\Clinic;
 
 class DonorController extends Controller
@@ -21,6 +22,12 @@ class DonorController extends Controller
 
     function donorHome(){
       return view('donors.donor-home');
+    }
+
+
+    public function newDonorPage( )
+    {
+        return view('donors.create');
     }
 
     /**
@@ -46,6 +53,13 @@ class DonorController extends Controller
             'password' => $password
           ]
         );
+    }
+
+    public function view()
+    {
+
+        $donors = Donor::all();
+        return view('donors.index', ['donors => $donors']);
     }
 
     /**
