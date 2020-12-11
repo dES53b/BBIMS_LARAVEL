@@ -2,43 +2,38 @@
 
 @section('content')
 <?php
-echo Form::open(array('url' => 'foo/bar'));
+<div> </div>
+echo Form::open(['url' => '/create/donor', 'method' =>'post']);
+echo Form::label('donor_id', 'Donor ID: ');
    echo Form::number('donor_id','Donor ID');
    echo '<br/>';
-   
+
+   echo Form::label('national_id', 'National ID: ');
    echo Form::number('national_id', 'National ID');
    echo '<br/>';
-
+   echo Form::label('name', 'Name:  ', 'placeholder', 'Enter name');
    echo Form::text('name', 'Name');
    echo '<br/>';
-   
+   echo Form::label('gender', 'Gender: ');
    echo Form::select('gender', array('M' => 'Male', 'F' => 'Female'));
    echo '<br/>';
-   
+   echo Form::label('marital_status', 'Marital Status: '); 
    echo Form::select('marital_status', array('S' => 'Single', 'T' => 'Taken'));
    echo '<br/>';
    
-   echo Form::select('gender', array('M' => 'Male', 'F' => 'Female'));
+   echo Form::label('date_of_birth', 'Date of Birth: ');
+   echo Form::date('dob', 'Date of Birth');
    echo '<br/>';
 
-   echo Form::date('date_of_birth', 'Date of Birth');
-   echo '<br/>';
-
-   <div class="form-group row">
-                            <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Location') }}</label>
-
-                            <div class="col-md-6">
-                                <select class="" name="location" required>
-                                  <option value="nairobi">Nairobi</option>
-                                  <option value="mombasa">Mombasa</option>
-                                  <option value="kisumu">Kisumu</option>
-                                  <option value="nakuru">Nakuru</option>
-                                  <option value="eldoret">Eldoret</option>
-
-                                </select>
+   echo Form::label('location', 'Location: ');
+   echo Form::select('location', array('Nairobi', 'Kisumu', 'Mombasa', 'Nakuru'));
+   
+   echo Form::label('phone_number', 'Phone Number: ');   
    echo Form::number('phone_number', 'Phone Number');
    echo '<br/>';
-   echo Form::select('health_status', array('V' => 'Invalid', 'I' => 'Invalid'));
+
+   echo Form::label('health_status', 'Health Status: ');
+   echo Form::select('health_status', array('V' => 'Valid', 'I' => 'Invalid'));
    echo '<br/>';
 
   

@@ -7,6 +7,7 @@ use App\Http\Controllers\AlertsController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\DonorController;
 
 
 /*
@@ -70,3 +71,7 @@ Route::get('/alerts/new', [AlertsController::class, 'index'])->name('newAlerts')
 Route::get('/alerts/alertclinic', [AlertsController::class, 'alertPage']);
 
 Route::post('/register/donor',[ClinicController::class,'create']);
+//donors
+Route::post('/create/donor',[DonorController::class,'create']);
+Route::get('/donor/new', [DonorController::class, 'newDonorPage']);
+Route::get('/donor/view', [DonorController::class,'view'])->name('viewDonors');

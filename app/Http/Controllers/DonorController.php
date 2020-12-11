@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Donor;
+use  Illuminate\Support\Facades\Hash;
+use App\Models\Donor;
 use App\Clinic;
 use AfricasTalking\SDK\AfricasTalking;
 
@@ -23,6 +24,7 @@ class DonorController extends Controller
     function donorHome(){
       return view('donors.donor-home');
     }
+
 
     function sendSMS($phone, $name){
       $username = 'sandbox';
@@ -46,6 +48,11 @@ class DonorController extends Controller
 
 
 
+}
+
+    public function newDonorPage( )
+    {
+        return view('donors.create');
 
     }
 
@@ -79,6 +86,13 @@ class DonorController extends Controller
         }
 
 
+    }
+
+    public function view()
+    {
+
+        $donors = Donor::all();
+        return view('donors.index', ['donors => $donors']);
     }
 
     /**

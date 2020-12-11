@@ -21,7 +21,7 @@ class CreateDonorsTable extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('marital_status');
-            $table->date('date_of_birth');
+            $table->date('dob');
             $table->string('location');
             $table->string('phone_number');
             $table->string('health_status');
