@@ -75,14 +75,14 @@ class DonorController extends Controller
             'dob' => request('dob'),
             'health_status' => request('health_status'),
             'marital_status' => request('marital_status'),
-            'phone_number' => request('phone_number'),
+            'phone' => request('phone'),
             'password' => $password
           ]
         );
         $donor = new Donor();
 
-        if ($donor->where('phone_number', request('phone_number'))->exists()) {
-          $this->sendSMS(request('phone_number'), request('name'));
+        if ($donor->where('phone', request('phone'))->exists()) {
+        //  $this->sendSMS(request('phone'), request('name'));
         }
 
 

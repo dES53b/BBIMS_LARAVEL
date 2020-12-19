@@ -7,7 +7,7 @@ use App\Http\Controllers\AlertsController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\DonorController;
+
 
 
 /*

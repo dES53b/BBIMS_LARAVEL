@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth;
+use  Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Donor;
 use App\Models\Clinic;
@@ -86,13 +87,13 @@ class LoginController extends Controller
 
     function donorLogIn(Request $request){
       $this->validate($request, [
-              'donor_id'   => 'required',
-              'national_id' => 'required'
+              'national_id'   => 'required',
+              'password' => 'required'
           ]);
 
           if (Auth::guard('donor')
-          ->attempt(['donor_id' => $request->donor_id,
-           'password' => Hash::make($request->national_id)])) {
+          ->attempt(['national_id' => $request->national_id,
+           'password' => $request->password])) {
 
               return redirect()->intended('/donor');
           }
