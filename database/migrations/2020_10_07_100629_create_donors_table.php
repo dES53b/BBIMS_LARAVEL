@@ -23,7 +23,8 @@ class CreateDonorsTable extends Migration
             $table->string('marital_status');
             $table->date('dob');
             $table->string('location');
-            $table->string('phone_number');
+            $table->string('phone');
+            $table->string('password');
             $table->string('health_status');
         });
     }
