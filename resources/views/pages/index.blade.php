@@ -9,7 +9,6 @@
         <img class="card-img-top" src="/imgs/admin_login.png" alt="Card image" style="width:100%">
         <div class="card-body">
           <h4 class="card-title">ADMINISTRATOR</h4>
-
           <a href="{{url('/login')}}" class="btn btn-primary" style="margin-right: 10px">LOGIN</a>
           <a href="{{url('/register')}}" class="btn btn-primary">REGISTER</a>
         </div>

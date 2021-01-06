@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\DonorController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\AlertsController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -40,7 +41,7 @@ Route::get('/services',[PagesController::class,'services']);
 Route::get('/',[PagesController::class,'index']);
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('guest');
 
 //Clinic and donor auths
 Route::get('/login/clinic',[LoginController::class,'clinicLoginPage']);
@@ -63,6 +64,12 @@ Route::get('/clinics/view', [ClinicController::class, 'view'])->name('viewClinic
 Route::get('/clinics/edit/{id}', [ClinicController::class, 'editPage'])->name('editClinic');
 Route::post('/clinics/delete', [ClinicController::class, 'delete'])->name('deleteClinic');
 
+//Donations
+Route::get('/donations/index', [DonationController::class, 'index'])->name('donationsIndex');
+Route::get('/donations/show', [DonationController::class, 'show'])->name('viewDonations');
+Route::post('/donations/create', [DonationController::class, 'store'])->name('newDonation');
+Route::post('/donations/delete', [DonationController::class, 'destroy'])->name('deleteDonation');
+
 //alerts
 
 Route::post('/alert/clinic', [AlertsController::class, 'alertClinic']);
@@ -74,4 +81,6 @@ Route::post('/register/donor',[ClinicController::class,'create']);
 //donors
 Route::post('/create/donor',[DonorController::class,'create']);
 Route::get('/donor/new', [DonorController::class, 'newDonorPage']);
+Route::get('/donor/profile/{id}', [DonorController::class, 'donorProfile'])->name('viewProfile');
+Route::get('/donation/history/{id}', [DonorController::class, 'donorHistory'])->name('viewHistory');
 Route::get('/donor/view', [DonorController::class,'view'])->name('viewDonors');

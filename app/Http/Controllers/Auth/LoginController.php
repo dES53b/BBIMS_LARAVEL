@@ -52,7 +52,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout'); //For admin
         $this->middleware('guest:donor')->except('logout');
         $this->middleware('guest:clinic')->except('logout');
     }
@@ -74,7 +74,7 @@ class LoginController extends Controller
 
             return redirect()->intended('/clinic');
           }
-        //  return back()->withInput($request->only('donor_id', 'remember'));
+      return back()->withInput($request->only('donor_id', 'remember'));
 
     }
 

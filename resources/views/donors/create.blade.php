@@ -28,6 +28,9 @@ echo Form::label('donor_id', 'Donor ID: ');
    echo Form::label('location', 'Location: ');
    echo Form::select('location', array('Nairobi', 'Kisumu', 'Mombasa', 'Nakuru'));
 
+   echo Form::label('blood_group', 'Blood Group ');
+   echo Form::select('blood_group', array('A-', 'A+', 'B-', 'B+', 'AB-', 'AB+', 'O+', 'O-'));
+
    echo Form::label('phone', 'Phone Number: ');
    echo Form::number('phone', 'Phone Number');
    echo '<br/>';

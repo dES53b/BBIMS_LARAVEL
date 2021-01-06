@@ -1,6 +1,7 @@
 @extends('layouts.donor_layout')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -12,14 +13,11 @@
                     <div class="">
                       <ul style="list-style: none;">
 
-                        <li  style=" display: inline; margin-right: 10px"> <a href="{{url('/new/clinic')}}">Create donor</a> </li>
-                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewClinics')}}">View donors</a> </li>
-                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('sendSMS')}}">Send SMS</a> </li>
+                        <li  style=" display: inline; margin-right: 10px"> <a href="{{route('viewProfile', ['id' => $donorId])}}">View Profile</a> </li>
+                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewHistory', ['id' => $donorId])}}">View Donation History</a> </li>
+                        <li   style="display: inline; margin-top: 10px">  <p>Next Donation: {{$nextDonation}}</p> </li>
 
-                        <li  style=" display: inline; margin-right: 10px"> <a href="{{url('/new/donor')}}">Create donor</a> </li>
-                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewDonors')}}">View donors</a> </li>
 
-                        {{-- <li  style="display: inline; margin-right: 10px"> <a href="{{route('newAlerts')}}">Send Alerts</a> </li> --}}
 
 
                       </ul>

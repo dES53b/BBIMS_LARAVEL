@@ -10,7 +10,7 @@ class Donor extends Authenticatable
 {
   use Notifiable;
 
-  protected $fillable = ['name', 'location', 'national_id', 'gender', 'dob', 'phone' ,'password','health_status', 'marital_status'];
+  protected $fillable = ['name', 'location', 'national_id', 'gender', 'dob', 'phone','blood_group' ,'password','health_status', 'marital_status'];
   protected $hidden = ['password', 'remember_token'];
 
   protected $guard = 'donor';
