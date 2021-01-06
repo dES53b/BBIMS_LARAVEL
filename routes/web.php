@@ -37,11 +37,14 @@ Route::get('/users/{id}/{name}', function($id,$name){
 Route::get('/about',[PagesController::class,'about']);
 Route::get('/services',[PagesController::class,'services']);
 
-
-Route::get('/',[PagesController::class,'index']);
+Route::group(['middleware' => ['guest', 'guest:clinic', 'guest:donor']], function()
+{
+  Route::get('/',[PagesController::class,'index'])->middleware('guest:clinic');
+});
+//Route::get('/',[PagesController::class,'index'])->middleware('guest:clinic');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('guest');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Clinic and donor auths
 Route::get('/login/clinic',[LoginController::class,'clinicLoginPage']);
@@ -79,8 +82,11 @@ Route::get('/alerts/alertclinic', [AlertsController::class, 'alertPage']);
 
 Route::post('/register/donor',[ClinicController::class,'create']);
 //donors
+Route::post('/donor/update',[DonorController::class,'update'])->name('updateDonor');
+Route::post('/donor/edit',[DonorController::class,'edit'])->name('editDonorPage');
+Route::post('/donor/delete',[DonorController::class,'destroy'])->name('deleteDonor');
 Route::post('/create/donor',[DonorController::class,'create']);
-Route::get('/donor/new', [DonorController::class, 'newDonorPage']);
+Route::get('/donor/new', [DonorController::class, 'newDonorPage'])->name('createDonor');
 Route::get('/donor/profile/{id}', [DonorController::class, 'donorProfile'])->name('viewProfile');
 Route::get('/donation/history/{id}', [DonorController::class, 'donorHistory'])->name('viewHistory');
 Route::get('/donor/view', [DonorController::class,'view'])->name('viewDonors');

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.clinic_layout')
 
 @section('content')
 <div class="container">
@@ -15,7 +15,7 @@
                         $position = 0;
                       @endphp
 
-
+                      @if(!$donations->isEmpty())
                       <table>
 
                           <tr>
@@ -53,9 +53,9 @@
 
                         </tbody>
                       </table>
-
-
-
+                      @else
+                      <p>No donations found</p>
+                      @endif
                     </div>
 
 

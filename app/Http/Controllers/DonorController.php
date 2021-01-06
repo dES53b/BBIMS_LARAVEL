@@ -37,7 +37,7 @@ class DonorController extends Controller
       if (!empty($donation->where('donorId', $donorId)->first()->nextDonation)) {
         $nextDonation = $donation->where('donorId', $donorId)->first()->nextDonation;
       }else{
-        $nextDonation = "Not available. Make a donation first";
+        $nextDonation = "Not available. Make a donation first.";
       }
 
       return view('donors.donor-home', array('donorId' => $donorId, 'nextDonation' => $nextDonation));
@@ -116,17 +116,17 @@ class DonorController extends Controller
         $donor = new Donor();
 
         if ($donor->where('phone', request('phone'))->exists()) {
-        //  $this->sendSMS(request('phone'), request('name'));
+        $this->sendSMS(request('phone'), request('name'));
         }
 
-
+        return redirect()->route('createDonor');
     }
 
     public function view()
     {
 
         $donors = Donor::all();
-        return view('donors.index', ['donors => $donors']);
+        return view('donors.index', ['donors' => $donors]);
     }
 
     /**
@@ -140,16 +140,7 @@ class DonorController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -159,7 +150,7 @@ class DonorController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('donors.edit');
     }
 
     /**
@@ -169,9 +160,23 @@ class DonorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
-        //
+      $password = Hash::make(request('national_id'));
+      $donor = new Donor();
+      $donor->where('id', request('id'))->update(
+        ['name' => request('name'),
+        'location' => request('location'),
+        'national_id' => request('national_id'),
+        'gender' => request('gender'),
+        'dob' => request('dob'),
+        'blood_group' => request('blood_group'),
+        'health_status' => request('health_status'),
+        'marital_status' => request('marital_status'),
+        'phone' => request('phone'),
+        'password' => $password]
+      );
+      return redirect()->route('viewClinics');
     }
 
     /**
@@ -180,9 +185,11 @@ class DonorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+      $donor = new Donor();
+      $donor->findOrFail(request('id'))->delete();
+      return redirect()->route('viewDonors');
     }
 
 }
