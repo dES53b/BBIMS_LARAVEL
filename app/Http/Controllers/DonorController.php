@@ -32,7 +32,7 @@ class DonorController extends Controller
     }
     function donorHome(){
 
-      $donorId = Auth::guard('donor')->user()->national_id;
+      $donorId = Auth::guard('donor')->user()->id;
       $donation = new Donation();
 
       if (!empty($donation->where('donorId', $donorId)->first()->nextDonation)) {
@@ -44,11 +44,12 @@ class DonorController extends Controller
       return view('donors.donor-home', array('donorId' => $donorId, 'nextDonation' => $nextDonation));
     }
 
-    function donorHistory($id){
+    function donorHistory(){
       $donation = new Donation();
+      $donorId = Auth::guard('donor')->user()->id;
       $history = $donation
       ->join('clinics', 'donations.clinic', '=', 'clinics.id')
-      ->select('donations.created_at', 'clinics.name', 'donations.volume')->where('donations.donorId', '=' , $id)->get();
+      ->select('donations.created_at', 'clinics.name', 'donations.volume')->where('donations.donorId', '=' , $donorId)->get();
       return view('donors.donor-history', ['history' => $history]);
     }
 

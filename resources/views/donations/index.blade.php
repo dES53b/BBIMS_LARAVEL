@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.clinic_layout')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,7 +14,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Select Donor') }}</label>
 
                             <div class="col-md-6">
-                                <select class="" name="name" required>
+                                <select class="" name="donorId" required>
                                   <option disabled value="nairobi">Select Donor</option>
                                   @foreach($donors as $donor)
                                   <option value="{{$donor->id}}">{{$donor->name}}</option>

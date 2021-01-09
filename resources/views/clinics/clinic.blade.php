@@ -13,6 +13,7 @@
                       <ul style="list-style: none;">
                         <li  style=" display: inline; margin-right: 10px"> <a href="{{url('/donor/new')}}">Create donor</a> </li>
                         <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewDonors')}}">View donors</a> </li>
+                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('donationsIndex')}}">Create donation</a> </li>
                         <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewDonations')}}">View donations</a> </li>
 
 

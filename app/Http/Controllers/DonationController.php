@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Donation;
+use App\Models\Donor;
 
 class DonationController extends Controller
 {
@@ -38,8 +39,8 @@ class DonationController extends Controller
     $nextDonation = $currentDate->addDays(60);
     Donation::create(
       [
-        'name' => request('name'),
-        'clinic' => request('clinic'),
+        
+        'clinic' => request('clinicId'),
         'donorId' => request('donorId'),
         'volume' => request('volume'),
         'nextDonation' => $nextDonation,

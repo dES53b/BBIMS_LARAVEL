@@ -15,12 +15,14 @@
                     <div class="">
                       @if(!$history->isEmpty())
                       @foreach($history as $historia)
+                  <div style="border: 1px solid blue; border-radius: 10px; margin-bottom: 10px" class="">
+                    <ul style="list-style: none;">
+                      <li  style="margin-right: 10px">Donation date: {{$historia->created_at}}</li>
+                      <li  style="margin-right: 10px">Clinic: {{$historia->name}}</li>
+                      <li  style="margin-right: 10px">Clinic: {{$historia->volume}}</li>
+                    </ul>
+                  </div>
 
-                      <ul style="list-style: none;">
-                        <li  style="margin-right: 10px">Donation date: {{$historia->created_at}}</li>
-                        <li  style="margin-right: 10px">Clinic: {{$historia->name}}</li>
-                        <li  style="margin-right: 10px">Clinic: {{$historia->volume}}</li>
-                      </ul>
                       @endforeach
 
                       @else
