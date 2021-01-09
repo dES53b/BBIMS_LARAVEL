@@ -14,9 +14,29 @@
                         <li  style=" display: inline; margin-right: 10px"> <a href="{{url('/donor/new')}}">Create donor</a> </li>
                         <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewDonors')}}">View donors</a> </li>
                         <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewDonations')}}">View donations</a> </li>
-                      {{-- <li  style="display: inline; margin-right: 10px"> <a href="{{route('newAlerts')}}">Send Alerts</a> </li> --}}
+
 
                       </ul>
+                    </div>
+
+                    <p style="">My Alerts</p>
+                    <div class="">
+                      @if(!$alerts->isEmpty())
+                      @foreach($alerts as $alert)
+                      <div class="" style=" border: 2px solid yellow; border-radius: 10px">
+                        <ul style="list-style: none;">
+                          <li>Date: {{$alert->created_at}}</li>
+                          <li>Security Status:{{$alert->security}}  </li>
+                          <li>Pickup Time: {{$alert->pickup_time }}</li>
+                        </ul>
+                      </div>
+                      @endforeach
+                      @else
+                      <div class="" style="border: 2px solid red">
+                        <p>No alerts found</p>
+                      </div>
+                      @endif
+
                     </div>
 
 

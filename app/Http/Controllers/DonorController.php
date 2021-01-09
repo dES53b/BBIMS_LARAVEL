@@ -47,7 +47,7 @@ class DonorController extends Controller
       $donation = new Donation();
       $history = $donation
       ->join('clinics', 'donations.clinic', '=', 'clinics.id')
-      ->select('donations.created_at', 'clinics.name', 'donations.volume')->where('donorId', $id)->get();
+      ->select('donations.created_at', 'clinics.name', 'donations.volume')->where('donations.donorId', '=' , $id)->get();
       return view('donors.donor-history', ['history' => $history]);
     }
 

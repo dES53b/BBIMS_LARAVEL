@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\Alerts;
 use App\Models\Clinic;
 use Hash;
 
@@ -42,6 +43,13 @@ class ClinicController extends Controller
 
     }
 
+    function getAlerts($id){
+
+      $alertModel = new Alerts();
+      return $alertModel->where('receiver', $id)->get();
+
+    }
+
 
 
     function create()
@@ -58,8 +66,8 @@ class ClinicController extends Controller
     }
 
     function clinicHome(){
-      
-      return view('clinics.clinic', );
+      $alerts = $this->getAlerts(Auth::guard('clinic')->user()->id);
+      return view('clinics.clinic', ['alerts' => $alerts]);
     }
 
     function delete()
