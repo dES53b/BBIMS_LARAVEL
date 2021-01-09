@@ -8,6 +8,7 @@ use App\Models\Donor;
 use App\Models\Donation;
 use App\Clinic;
 use Carbon\Carbon;
+use App\Helpers\SMSHelper;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Auth ;
 use AfricasTalking\SDK\AfricasTalking;
@@ -59,29 +60,7 @@ class DonorController extends Controller
       return view('donors.donor-profile', ['profile' => $profile, 'donorAge' => $donorAge]);
     }
 
-    function sendSMS($phone, $name){
-      $username = 'sandbox';
-      $key = '1c69c9a7a5bf058bcaf59a5f695a1e915a0351e6d5c55e8edc398d81084dab6e';
-    //  $from = 'Blood Bank Group';
-      $africasTalking = new AfricasTalking($username, $key);
-      $sms = $africasTalking->sms();
 
-      try {
-        $result = $sms->send([
-          'to' => $phone,
-          'message' => "Hello, ".$name." ,your account has been successfully created.",
-          'from' => 'BBIMS'
-
-        ]);
-      } catch (\Exception $e) {
-
-        echo $e->message;
-      }
-      return $result;
-
-
-
-}
 
     public function newDonorPage( )
     {
@@ -114,9 +93,9 @@ class DonorController extends Controller
           ]
         );
         $donor = new Donor();
-
+        $smsHelper = new SMSHelper();
         if ($donor->where('phone', request('phone'))->exists()) {
-        $this->sendSMS(request('phone'), request('name'));
+        $smsHelper->sendSMS(request('phone'), "Hello, ". request('name')." , your account has been successfully created.");
         }
 
         return redirect()->route('createDonor');
