@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Helpers;
+use AfricasTalking\SDK\AfricasTalking;
 
 /**
  *

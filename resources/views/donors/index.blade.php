@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.clinic_layout')
 
 @section('content')
 
@@ -23,14 +23,14 @@
       <td>{{$donor->national_id}}</td>
       <td>{{$donor->name}}</td>
       <td>{{$donor->gender}}</td>
-      <td>{{$donor->imarital_status}}</td>
-      <td>{{$donor->date_of_birth}}</td>
-      <td>{{$donor->locationj}}</td>
-      <td>{{$donor->phone_number}}</td>
+      <td>{{$donor->marital_status}}</td>
+      <td>{{$donor->dob}}</td>
+      <td>{{$donor->location}}</td>
+      <td>{{$donor->phone}}</td>
       <td>{{$donor->health_status}}</td>
       <td> <div style="">
 
-        
+
         <form style="float: right; margin-left: 10px;" action="{{route('deleteDonor')}}" method="post">
           @csrf
           <input type="hidden" name="id" value="{{$donor->id}}">

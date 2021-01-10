@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Helpers\SMS;
 use App\Models\Donation;
 use App\Models\Donor;
 
@@ -36,16 +37,24 @@ class DonationController extends Controller
 
   function store(){
     $currentDate = Carbon::now();
+    $donation = new Donation();
+    $donor = new Donor();
     $nextDonation = $currentDate->addDays(60);
     Donation::create(
       [
-        
+
         'clinic' => request('clinicId'),
         'donorId' => request('donorId'),
         'volume' => request('volume'),
         'nextDonation' => $nextDonation,
       ]
     );
+
+    if($donation->where('donorId', request('donorId')->exists())){
+      $myDonor = $donor->where('id', 'donorId')->first();
+      $sms = new SMS();
+      $sms->sendSMS($myDonor->phone, "Hello, ". request('name')." , you have successfully made a donation of ". request('volume')." Millilitres.");
+    }
 
   return redirect()->route('donationsIndex');
   }

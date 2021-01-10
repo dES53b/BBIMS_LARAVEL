@@ -13,8 +13,8 @@
                     <div class="">
                       <ul style="list-style: none;">
 
-                        <li  style=" display: inline; margin-right: 10px"> <a href="{{route('viewProfile', ['id' => $donorId])}}">View Profile</a> </li>
-                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewHistory', ['id' => $donorId])}}">View Donation History</a> </li>
+                        <li  style=" display: inline; margin-right: 10px"> <a href="{{route('viewProfile')}}">View Profile</a> </li>
+                        <li  style="display: inline; margin-right: 10px"> <a href="{{route('viewHistory')}}">View Donation History</a> </li>
                         <li   style="display: inline; margin-top: 10px">  <p>Next Donation: {{$nextDonation}}</p> </li>
                       </ul>
                     </div>

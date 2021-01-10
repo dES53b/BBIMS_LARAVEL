@@ -8,10 +8,9 @@ use App\Models\Donor;
 use App\Models\Donation;
 use App\Clinic;
 use Carbon\Carbon;
-use App\Helpers\SMSHelper;
+use App\Helpers\SMS;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Auth ;
-use AfricasTalking\SDK\AfricasTalking;
 
 class DonorController extends Controller
 {
@@ -53,9 +52,10 @@ class DonorController extends Controller
       return view('donors.donor-history', ['history' => $history]);
     }
 
-    function donorProfile($id){
+    function donorProfile(){
       $donor =  new Donor();
-      $profile = $donor->where('national_id', $id)->first();
+      $donorId = Auth::guard('donor')->user()->id;
+      $profile = $donor->where('id', $donorId)->first();
       $donorAge = $this->getAge($profile->dob);
 
       return view('donors.donor-profile', ['profile' => $profile, 'donorAge' => $donorAge]);
@@ -94,7 +94,7 @@ class DonorController extends Controller
           ]
         );
         $donor = new Donor();
-        $smsHelper = new SMSHelper();
+        $smsHelper = new SMS();
         if ($donor->where('phone', request('phone'))->exists()) {
         $smsHelper->sendSMS(request('phone'), "Hello, ". request('name')." , your account has been successfully created.");
         }

@@ -79,6 +79,7 @@ Route::post('/alert/clinic', [AlertsController::class, 'alertClinic']);
 Route::post('/alert/donor', [AlertsController::class, 'alertDonor']);
 Route::get('/alerts/new', [AlertsController::class, 'index'])->name('newAlerts');
 Route::get('/alerts/alertclinic', [AlertsController::class, 'alertPage']);
+Route::get('/alerts/alertdonor', [AlertsController::class, 'alertDonorPage']);
 
 Route::post('/register/donor',[ClinicController::class,'create']);
 //donors
@@ -87,6 +88,6 @@ Route::post('/donor/edit',[DonorController::class,'edit'])->name('editDonorPage'
 Route::post('/donor/delete',[DonorController::class,'destroy'])->name('deleteDonor');
 Route::post('/create/donor',[DonorController::class,'create']);
 Route::get('/donor/new', [DonorController::class, 'newDonorPage'])->name('createDonor');
-Route::get('/donor/profile/{id}', [DonorController::class, 'donorProfile'])->name('viewProfile');
-Route::get('/donation/history/{id}', [DonorController::class, 'donorHistory'])->name('viewHistory');
+Route::get('/donor/profile', [DonorController::class, 'donorProfile'])->name('viewProfile');
+Route::get('/donation/history', [DonorController::class, 'donorHistory'])->name('viewHistory');
 Route::get('/donor/view', [DonorController::class,'view'])->name('viewDonors');

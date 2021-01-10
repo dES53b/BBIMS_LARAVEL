@@ -4,9 +4,8 @@
 <?php
 
 echo Form::open(['url' => '/create/donor', 'method' =>'post']);
-echo Form::label('donor_id', 'Donor ID: ');
-   echo Form::number('donor_id','Donor ID');
-   echo '<br/>';
+
+   
 
    echo Form::label('national_id', 'National ID: ');
    echo Form::number('national_id', 'National ID');
@@ -36,7 +35,7 @@ echo Form::label('donor_id', 'Donor ID: ');
    echo '<br/>';
 
    echo Form::label('health_status', 'Health Status: ');
-   echo Form::select('health_status', array('V' => 'Valid', 'I' => 'Invalid'));
+   echo Form::select('health_status', array('Valid' => 'Valid', 'I' => 'Invalid'));
    echo '<br/>';
 
 
