@@ -50,10 +50,10 @@ class DonationController extends Controller
       ]
     );
 
-    if($donation->where('donorId', request('donorId')->exists())){
-      $myDonor = $donor->where('id', 'donorId')->first();
+    if($donation->where('donorId', request('donorId'))->exists()){
+      $myDonor = $donor->where('id', request('donorId'))->first();
       $sms = new SMS();
-      $sms->sendSMS($myDonor->phone, "Hello, ". request('name')." , you have successfully made a donation of ". request('volume')." Millilitres.");
+      $sms->sendSMS($myDonor->phone, "Hello, ".$myDonor->name.", you have successfully made a donation of ". request('volume')." Millilitres.");
     }
 
   return redirect()->route('donationsIndex');

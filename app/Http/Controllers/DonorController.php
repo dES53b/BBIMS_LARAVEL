@@ -96,7 +96,7 @@ class DonorController extends Controller
         $donor = new Donor();
         $smsHelper = new SMS();
         if ($donor->where('phone', request('phone'))->exists()) {
-        $smsHelper->sendSMS(request('phone'), "Hello, ". request('name')." , your account has been successfully created.");
+        $smsHelper->sendSMS(request('phone'), "Hello, ". request('name').", your account has been successfully created.");
         }
 
         return redirect()->route('createDonor');

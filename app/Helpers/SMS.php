@@ -10,7 +10,7 @@ class SMS
 {
   function sendSMS($phone, $message){
     $username = 'sandbox';
-    $key = '1c69c9a7a5bf058bcaf59a5f695a1e915a0351e6d5c55e8edc398d81084dab6e';
+    $key = '0999ad0eacbf0d678eaef60e32e768ca7ccfa4e6d56520d86f16f9aa854fbc9e';
   //  $from = 'Blood Bank Group';
     $africasTalking = new AfricasTalking($username, $key);
     $sms = $africasTalking->sms();
